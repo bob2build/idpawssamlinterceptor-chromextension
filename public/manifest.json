@@ -1,0 +1,31 @@
+{
+  "manifest_version": 2,
+  "name": "idpawssamlinterceptor",
+  "description": "This extentions intercepts SAML workflow between your IDP (e.g Okta) and AWS and exports the SAML assertion. The SAML assertion can be used to generated AWS CLI credentials for usage in other tools",
+  "version": "0.0.1",
+  "permissions": [
+    "webRequest",
+    "*://signin.aws.amazon.com/*",
+    "background",
+    "downloads"
+  ],
+  "externally_connectable": {
+    "matches": [
+      "*://localhost:*/*"
+    ]
+  },
+  "browser_action": {
+    "default_popup": "index.html",
+    "default_title": "AWS SAML"
+  },
+  "background": {
+    "scripts": [
+      "app/background.js"
+    ]
+  },
+  "icons": {
+    "16": "favicon.ico",
+    "48": "favicon.ico",
+    "128": "favicon.ico"
+  }
+}
