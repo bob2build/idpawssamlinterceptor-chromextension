@@ -9,6 +9,13 @@ This tool is inspired from
 * https://aws.amazon.com/blogs/security/how-to-implement-federated-api-and-cli-access-using-saml-2-0-and-ad-fs/ 
 
 
+## Functionality
+* Capture SAML assertions sent to signin.aws.amazon.com
+* Render list of roles available for Valid assertion. (Assertion usually expires in under 10 minutes)
+* For each valid role, render links to generate and download credentials
+* Provide configuration to support which websites are allowed to receive credentials
+* Store & Retrieve configuration values on shutdown/startup  
+
 ## TODO
 * Refactor JS code and add some tests
 * Add some CSS to make UI better

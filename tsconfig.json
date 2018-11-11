@@ -1,10 +1,13 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
+    "baseUrl": "./packages",
     "outDir": "build/dist",
     "module": "esnext",
     "target": "es5",
-    "lib": ["es6", "dom"],
+    "lib": [
+      "es6",
+      "dom"
+    ],
     "sourceMap": true,
     "allowJs": true,
     "jsx": "react",
@@ -17,7 +20,21 @@
     "importHelpers": true,
     "strictNullChecks": true,
     "suppressImplicitAnyIndexErrors": true,
-    "noUnusedLocals": true
+    "noUnusedLocals": true,
+    "paths": {
+      "@material-ui/core": [
+        "./material-ui/src"
+      ],
+      "@material-ui/core/*": [
+        "./material-ui/src/*"
+      ],
+      "@material-ui/lab": [
+        "./material-ui-lab/src"
+      ],
+      "@material-ui/lab/*": [
+        "./material-ui-lab/src/*"
+      ]
+    }
   },
   "exclude": [
     "node_modules",

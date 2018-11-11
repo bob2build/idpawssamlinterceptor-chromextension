@@ -3,11 +3,17 @@
 /* Add minimal functionality to intercept SAML requests to signin.aws.amazon.com and hold the last recorded SAML Assertion */
 
 var encodedSamlResponse = ""
+var config = ""
 
 const samlRequestListener = (message, sender, sendResponse) => {
-  if (message.type === "SEND_SAML")
+  if (message.type === "FETCH_SAML")
     sendResponse({encoded_saml: encodedSamlResponse});
-  else {
+  else if (message.type === "FETCH_CONFIG") {
+    sendResponse({config: config});
+  } else if (message.type === "SAVE_CONFIG") {
+    config = message.config
+    sendResponse({config: config});
+  } else {
     console.log("Unknown Message received" + message)
   }
 }
@@ -36,5 +42,6 @@ const samlRequestListener = (message, sender, sendResponse) => {
   }, networkFilters, ['requestBody']);
 
   chrome.runtime.onMessage.addListener(samlRequestListener);
-  chrome.runtime.onMessageExternal.addListener(samlRequestListener);
+  // Uncomment the following line for local rapid testing as webpage in chrome browser
+  // chrome.runtime.onMessageExternal.addListener(samlRequestListener);
 }());
