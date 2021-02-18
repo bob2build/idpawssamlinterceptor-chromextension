@@ -65,16 +65,17 @@ export default class ChromePluginContainer extends React.Component<Props, State>
     fetchAssertion = () => {
         this.setState({isLoading: true});
         /*
-            We set extentionid during local testing. This allows for rapid testing of popup page by running as a webpage in chrome browser rather than running after installing the extension
-            For this to work
-            .env.local must contain REACT_APP_CHROME_EXTENSION_ID="XXX"
-            manifest.json must be updated to
+            Property "extensionId" is set during local testing.
+            This allows for rapid testing of the popup page by running it as a webpage in Chrome rather than running it after installing the extension.
+            For this to work, do the following:
+            - .env.local must contain REACT_APP_CHROME_EXTENSION_ID="XXX"
+            - manifest.json must be updated to
                 "externally_connectable": {
                     "matches": [
                     "*://localhost:* /*"
                     ]
                 }
-            uncomment a line in background.js to enable listening for external messages
+            - uncomment a line in background.js to enable listening for external messages
          */
 
         if (this.state.extensionId === "") {
@@ -118,7 +119,7 @@ export default class ChromePluginContainer extends React.Component<Props, State>
             // @ts-ignore
             chrome.downloads.download(c);
         } else {
-            alert("Unable to download credentials while running via webpack" + "URL: " + c.url + " Saveas: " + c.saveAs)
+            alert("Unable to download credentials while running via webpack. URL: " + c.url + " Saveas: " + c.saveAs)
         }
     }
 

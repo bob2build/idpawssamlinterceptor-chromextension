@@ -106,8 +106,8 @@ class SAMLAssertionView extends React.Component<Props, State> {
                             </tbody>
                         </table>)
                         :
-                        (<p>No Valid SAML Assertion Found. <br/>Login to any of AWS APPS in you Identity Provider
-                            console (e.g. OKTA) and try again</p>)
+                        (<p>No Valid SAML Assertion Found. <br/>Log into any of your AWS apps via your identity provider
+                            console (e.g., Okta) and try again.</p>)
                     }
                 </div>
             </div>)

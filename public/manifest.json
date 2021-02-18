@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
   "name": "idpawssamlinterceptor",
-  "description": "This extention intercepts SAML workflow between your IDP (e.g Okta) and AWS and generates of AWS CLI creds",
-  "version": "0.1.0",
+  "description": "This extention intercepts SAML workflow between your IDP (e.g., Okta) and AWS and generates AWS CLI credentials",
+  "version": "0.1.1",
   "permissions": [
     "webRequest",
     "*://signin.aws.amazon.com/*",
