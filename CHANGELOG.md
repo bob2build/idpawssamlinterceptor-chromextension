@@ -3,6 +3,7 @@
 ### 0.1.2
 * :zap: Update yarn dependencies so that build succeeds
 * :zap: Deduplicate yarn dependencies using https://www.npmjs.com/package/yarn-deduplicate
+* :zap: Add Content Security Policy (CSP)
 * :zap: Add build and test instructions to README.md
 * :zap: Fix typos
 * :zap: Add LICENSE file with MIT License
