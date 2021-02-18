@@ -5,7 +5,7 @@
 * :zap: Deduplicate yarn dependencies using https://www.npmjs.com/package/yarn-deduplicate
 * :zap: Add build and test instructions to README.md
 * :zap: Fix typos
-* :zap: Add LICENSE file
+* :zap: Add LICENSE file with MIT License
 
 ### 0.1.0
 * :star2: Support for providing custom name for downloaded file
