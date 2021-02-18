@@ -13,6 +13,7 @@
     "default_popup": "index.html",
     "default_title": "IDP AWS SAML Interceptor"
   },
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
   "background": {
     "scripts": [
       "app/background.js"
