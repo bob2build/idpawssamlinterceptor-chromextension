@@ -24,8 +24,17 @@ This tool is inspired by
 ## Requirements
 
 Install the following tools:
-- yarn
-- node (v14 works fine)
+* yarn
+* node (v14 works fine)
+
+## Test
+
+Run the following commands:
+```
+cd /.../path/to/idpawssamlinterceptor-chromextension/
+yarn
+yarn test
+```
 
 ## Build
 
@@ -41,10 +50,6 @@ yarn build
 * Browse to chrome://extensions/ .
 * Enable “Developer mode” using the toggle in the top-right corner.
 * Select “Load unpacked” and point it to the `idpawssamlinterceptor-chromextension/build/` directory.
-
-## Test
-
-Run `yarn test`
 
 ## TODO
 * Refactor JS code and add some tests
