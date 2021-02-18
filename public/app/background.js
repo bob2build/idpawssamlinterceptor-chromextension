@@ -6,9 +6,9 @@ var encodedSamlResponse = ""
 var config = ""
 
 const samlRequestListener = (message, sender, sendResponse) => {
-  if (message.type === "FETCH_SAML")
+  if (message.type === "FETCH_SAML") {
     sendResponse({encoded_saml: encodedSamlResponse});
-  else if (message.type === "FETCH_CONFIG") {
+  } else if (message.type === "FETCH_CONFIG") {
     sendResponse({config: config});
   } else if (message.type === "SAVE_CONFIG") {
     config = message.config
