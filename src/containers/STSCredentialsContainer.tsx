@@ -31,7 +31,7 @@ interface Credentials {
 
 interface State {
     roles: Role[]
-    expirtyTime: number
+    expiryTime: number
     assertion: string
 }
 
@@ -43,12 +43,12 @@ interface STSCredentialsProps {
     refreshAssertion: () => void
 }
 
-/* Handles Generation of AWS credentials */
+/* Handles generation of AWS credentials */
 export default class STSCredentialsContainer extends React.Component<Props, State> {
     constructor(props: Props) {
         super(props);
         let parsed = this.parseAssertion()
-        this.state = {roles: parsed.roles, expirtyTime: parsed.expiryTime, assertion: this.props.assertion}
+        this.state = {roles: parsed.roles, expiryTime: parsed.expiryTime, assertion: this.props.assertion}
     }
 
     componentDidUpdate() {
@@ -70,9 +70,7 @@ export default class STSCredentialsContainer extends React.Component<Props, Stat
                 if (expiryTimeStr !== null) {
                     expiryTime = Date.parse(expiryTimeStr.value);
                     let currentTime = new Date().getTime();
-                    if (currentTime > expiryTime) {
-
-                    } else {
+                    if (currentTime <= expiryTime) {
                         let roleNodes = doc.querySelectorAll('[Name="https://aws.amazon.com/SAML/Attributes/Role"]');
                         if (roleNodes !== null) {
                             roleNodes.forEach(function (roleNode) {
@@ -186,13 +184,13 @@ export default class STSCredentialsContainer extends React.Component<Props, Stat
 
     render() {
         /*if (this.state.roles.length === 0) {
-            return (<div>No Valid SAML assertion Found. Login to any AWS app in OKTA and <button
-                onClick={this.props.refreshAssertion}>Refresh</button> again
+            return (<div>No valid SAML assertion found. Log into any AWS app in Okta and <button
+                onClick={this.props.refreshAssertion}>Refresh</button> again.
             </div>)
         }*/
         return this.props.children({
             roles: this.state.roles,
-            expiryTime: this.state.expirtyTime,
+            expiryTime: this.state.expiryTime,
             downloadCredentials: this.downloadCredentials,
             generateCredentials: this.generateCredentials,
             refreshAssertion: this.props.refreshAssertion
